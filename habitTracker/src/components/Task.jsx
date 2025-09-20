@@ -3,20 +3,21 @@ import React,{useState} from "react";
 
 const Task = ({ users ,addtask }) => {
 const [task , setTask ] = useState("")
-const [selectuser , setSuser ] = useState("")
+const [selectUser , setSuser ] = useState("")
 
 
   return (
       <form onSubmit = { (e) => { 
         e.preventDefault()
         
-        if(task.trim() && selectuser) {
-          addtask(task,selectuser)
+        if(task.trim() && selectUser) {
+          addtask(task,selectUser)
           setTask("")
           setSuser("")
         }
         
-        }} className="flex items-centre justify-between mx-auto my-20 px-65">
+        }}
+         className="flex items-centre justify-between mx-auto my-20 px-65 ">
       <input
       onChange = {(e)=> setTask(e.target.value)} 
         type="text"
@@ -30,7 +31,7 @@ const [selectuser , setSuser ] = useState("")
       >
         Ajout
       </button>
-      <select onChange = {(e)=> setSuser(e.target.value)} value={selectuser} className="bg-[#ffffff] w-[233px] h-[70px] border-2 rounded-lg border-[#5C63F9] text-[24px] px-10  hover:shadow-xl hover:scale-[1.02] transition-all duration-400 ease-in-out cursor-pointer">
+      <select onChange = {(e)=> setSuser(e.target.value)} value={selectUser} className="bg-[#ffffff] w-[233px] h-[70px] border-2 rounded-lg border-[#5C63F9] text-[24px] px-10  hover:shadow-xl hover:scale-[1.02] transition-all duration-400 ease-in-out cursor-pointer">
         <option value="">Sélection</option>
         {users.map((user) => (
           <option key={user.id} value={user.name}>

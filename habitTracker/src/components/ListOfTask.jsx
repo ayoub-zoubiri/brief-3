@@ -7,15 +7,17 @@ const ListOfTask = ({ routines, deleteTask, toggleTask, userId }) => {
         <div 
           key={routine.id} 
           className="flex items-center justify-between w-70 h-[50px] bg-white rounded-[10px] border border-[#5C63F9] hover:shadow-xl px-2 my-2 hover:scale-[1.01] transition-all duration-400 ease-in-out"
-        >
+        > 
           <div className="flex items-center justify-between">
-            <h1 className="text-[19px] pl-2">{routine.title}</h1>
+            {routine.done ? (
+            <h1 className="text-[19px] pl-2 line-through">{routine.title}</h1>
+             ) : (<h1 className="text-[19px] pl-2 ">{routine.title}</h1> ) }
           </div>
           <div className="flex items-center justify-between">
             {routine.done ? (
               // If done - show cancel button (X)
               <button 
-                className="py-0.5 px-1.5 bg-white rounded-[10px] border border-[#E0B43B] cursor-pointer shadow-xl mx-[1.5px] hover:bg-[#f2da99]"
+                className="py-0.5 px-1.5 bg-white rounded-[10px] border border-[#E0B43B] cursor-pointer shadow-xl mx-[1.5px] hover:bg-[#f2da99] "
                 onClick={() => toggleTask(userId, routine.id)}
                 title="Marquer comme non terminé"
               >
@@ -34,7 +36,7 @@ const ListOfTask = ({ routines, deleteTask, toggleTask, userId }) => {
             <button 
               className="py-0.5 px-1.5 bg-white rounded-[10px] border cursor-pointer border-[#FE484D] shadow-xl mx-[1.5px] hover:bg-[#faa4a7]"
               onClick={() => deleteTask(userId, routine.id)}
-              title="Supprimer la tâche"
+              title="Supprimer la tâche" 
             >
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FE484D"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
             </button>

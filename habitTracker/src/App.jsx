@@ -1,8 +1,7 @@
 import { useState , useEffect} from 'react'
 
-import Title from "./component/title";
-import Task from "./component/task";
-import Cards from "./component/cards";
+import Task from "./components/Task";
+import Cards from "./components/cards";
 
 
 import './App.css'
@@ -101,8 +100,9 @@ const toggleTask = (userId, taskId) => {
 
   return (
     <>
-
-      <Title/>
+ <div>
+      <div className="w-[583px] h-16 mx-auto mt-20 justify-center text-[#5C63F9] text-6xl font-semibold ">Daily Habits Tracker</div>
+    </div>
       <Task users={users} addtask = {addTask} />
       <Cards users = {users} deletetask ={deleteTask} toggletask={toggleTask}/>
 
